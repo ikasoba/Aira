@@ -11,11 +11,11 @@ const client = new Client({ intents });
 for (let i = 0; i < eventListeners.length; i++) {
     const eventName =eventListeners[i].eventName
     if (eventListeners[i].once) {
-        client.once(eventName, (client: Client, ...args: ClientEvents[] ) =>
+        client.once(eventName, (...args: ClientEvents[] ) =>
             eventListeners[i].execute(client, ...args),
         );
     } else {
-        client.on(eventListeners[i].eventName, (client: Client, ...args: ClientEvents[]) =>
+        client.on(eventListeners[i].eventName, (...args: ClientEvents[]) =>
             eventListeners[i].execute(client, ...args),
         );
     }
